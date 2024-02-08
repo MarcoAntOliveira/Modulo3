@@ -1,0 +1,54 @@
+@startuml banco   
+class Pessoa {
+    # string nome
+    # int idade
+    
+    + int set_idade()
+    + int get_idade()
+    + str set_nome()
+    + str get_nome()
+}
+class Cliente{
+    # Pessoa pessoa
+    # Conta conta
+    
+}
+abstract class Conta{
+    # int agencia
+    # int n_conta
+
+    + int sacar( int )
+    + int depositar(int )
+
+}
+class Contapoupança{
+    
+}
+class ContaCorrente {
+
+    #int lim_extra
+
+
+    + int set_lim_extra(int)
+    + int get_lim_extra(int) 
+
+}
+
+class Banco{
+    # list clientes
+    # list contas   
+} 
+
+
+
+Pessoa*-->Cliente
+Conta*--> Contapoupança
+Conta*--> ContaCorrente
+ContaCorrente <--o Banco
+Contapoupança <--o Banco
+Cliente o--> Banco
+Contapoupança <-- Cliente
+ContaCorrente <-- Cliente
+
+
+@enduml
